@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+service PoissonPredictor {
+    rpc PredictOnAvePairScores(PairScoresRequest) returns (PredictionResponse) {}
+    rpc PredictOnAveTeamScores(TeamScoresRequest) returns (PredictionResponse) {}
+}
+
+message PairScoresRequest {
+    float ave_home_scored = 1;
+    float ave_away_scored = 2;
+}
+
+message TeamScoresRequest {
+    float ave_scored_home = 1;
+    float ave_conceded_home = 2;
+    float ave_scored_away = 3;
+    float ave_conceded_away = 4;
+}
+
+message PredictionResponse {
+    map<string, float> odds = 1;
+}
