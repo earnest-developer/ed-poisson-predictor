@@ -1,0 +1,4 @@
+.dockerignore
+.gitignore
+client.py
+README.md
